@@ -1,5 +1,5 @@
-import React, { Component, Suspense } from 'react';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import React, { Component, Fragment, Suspense } from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
 import User from './containers/User';
 import Welcome from './containers/Welcome';
@@ -17,7 +17,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Fragment>
         <button onClick={this.modeHandler}>Toggle Mode</button>
         {this.state.showPosts ? (
           <Suspense fallback={<div>Loading...</div>}>
@@ -26,9 +26,9 @@ class App extends Component {
         ) : (
             <User />
           )}
-      </React.Fragment>
-      // <BrowserRouter>
-      //   <React.Fragment>
+      </Fragment>
+      // <Router>
+      //   <Fragment>
       //     <nav>
       //       <NavLink to="/user">User Page</NavLink> |&nbsp;
       //       <NavLink to="/posts">Posts Page</NavLink>
@@ -43,8 +43,8 @@ class App extends Component {
       //         </Suspense>
       //       )}
       //     />
-      //   </React.Fragment>
-      // </BrowserRouter>
+      //   </Fragment>
+      // </Router>
     );
   }
 }
